@@ -7,8 +7,9 @@
 <body>
 <h1>your library</h1>
 <button onclick="navigateTo('home.html')">back</button>
-<button onclick="createUnits()">load units</button>
-<div id="units-container">
+<button onclick="createUnit('new-unit')">create unit</button>
+<br><br>
+<div id="units-container" onload="listUnits()">
 
 </div>
 

@@ -2,16 +2,11 @@ import * as api from './backend-connection.js';
 
 console.log("I'm the library.js file")
 
-const countUnits = async () => {
-  const units = await api.apiFetch('/units/list', 'GET');
-  if(units) return units.length;
-}
-
-const createUnits = async () => {
+const listUnits = async () => {
   const container = document.getElementById('units-container')
-  const count = await countUnits();
+  const units = await api.apiFetch('/units/list', 'GET');
 
-  for(let i = 0; i < count; i++) {
+  for(let i = 0; i < units.length; i++) {
     const rect = document.createElement('div');
     rect.style.width = '100px';
     rect.style.height = '50px';
@@ -21,3 +16,10 @@ const createUnits = async () => {
     container.appendChild(rect);
   }
 }
+
+const createUnit = async unitName => {
+  const result = await api.apiFetch('/units/add', 'POST', { unitName });
+}
+
+window.createUnit = createUnit;
+window.createUnits = listUnits();
