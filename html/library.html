@@ -6,14 +6,23 @@
 </head>
 <body>
 <h1>your library</h1>
-<button onclick="navigateTo('home.html')">back</button>
-<button onclick="createUnit('new-unit')">create unit</button>
+<button id="home-button">home</button>
+<button id="add-unit-button">add unit</button>
 <br><br>
+
+<div id="new-unit-form" style="display: none">
+  <label for="unit-name"></label>
+  <input type="text" id="unit-name" placeholder="unit name">
+  <button id="create-button">create</button>
+  <button id="cancel-button">cancel</button>
+</div>
+
 <div id="units-container" onload="listUnits()">
 
 </div>
 
-<script src="../js/main.js"></script>
 <script type="module" src="../js/library.js"></script>
+<script type="module" src="../js/unit.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>

@@ -17,9 +17,4 @@ const listUnits = async () => {
   }
 }
 
-const createUnit = async unitName => {
-  const result = await api.apiFetch('/units/add', 'POST', { unitName });
-}
-
-window.createUnit = createUnit;
-window.createUnits = listUnits();
+window.onload = listUnits;
